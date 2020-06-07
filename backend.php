@@ -1,8 +1,11 @@
 <?php 
-$a = $_POST['num1'];
-$b = $_POST['num2'];
+$a = $_POST['a'];
 
-echo $a + $b;
-echo 'true';
-
+if($a == 0){
+    echo 'Равна нулю!';
+} else if ($a == 1){
+    echo 'Равна единице';
+} else {
+    echo 'Значение не введено!';
+}
 ?>
