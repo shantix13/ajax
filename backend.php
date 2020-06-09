@@ -1,11 +1,16 @@
 <?php 
-$a = $_GET['a'];
 
-if($a == 0){
-    echo 'Равна нулю!';
-} else if ($a == 1){
-    echo 'Равна единице';
-} else {
-    echo 'Значение не введено!';
+$inp = $_POST['ourForm_inp'];
+
+switch($inp){
+    case 'Garry':
+        echo 'Grdffindor';
+    break;
+    case 'Germiona':
+    echo 'To my cabinet';
+    break;
+    default:
+    echo 'Magl';
 }
+
 ?>
