@@ -1,35 +1,16 @@
-// $.ajax(
-//     'https://repetitora.net/api/JS/Images',
-//     {
-//         success: function (data) {
-//             data.forEach(el => {
-//                 const img = document.createElement('img');
-//                 img.src = el.thumbnail;
-//                 document.querySelector('body').appendChild(img);
-//             });
-//         }
-//     }
-// );
-// Endpoint - оконечная точка.
+// function getImages(ajaxUrl) {
+//     let promise = $.ajax(ajaxUrl);
+//     //console.log(promise);
+//     return promise;
+// }
 
-// http протокол имеет разные типы запросов. Get / Post / Options / Delete / Put.
+// getImages('https://repetitora.net/api/JS/Images');
 
-// Get - запрос для получения данных. Самый простой запрос. Состоит из одной характеристики - строка запроса. 
+function getImagesAxios(ajaxUrl) {
+    let promise = axios.get(ajaxUrl);
+    return promise.then((data) => {
+        console.log(data.data);
+    });
+}
 
-// query string - строка запроса. Можно заслать параметры для получения опеределенных данных.
-
-// https://repetitora.net/api/JS/Images/?page=2&click=yes&other=blablabla
-
-
-$.ajax(
-    'https://repetitora.net/api/JS/Images/?page=2&count=4',
-    {
-        success: function (data) {
-            data.forEach(el => {
-                const img = document.createElement('img');
-                img.src = el.thumbnail;
-                document.querySelector('body').appendChild(img);
-            });
-        }
-    }
-);
+getImagesAxios('https://repetitora.net/api/JS/Images');
