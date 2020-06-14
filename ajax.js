@@ -1,27 +1,14 @@
-let servResponse = document.querySelector('#response');
 
 
-document.forms.ourForm.onsubmit = function (e) {
-    e.preventDefault();
-
-    let userInput = document.forms.ourForm.ourForm_inp.value;
-    userInput = encodeURIComponent(userInput);
-
-    let xhr = new XMLHttpRequest();
-
-    // GET Запрос
-    // xhr.open('GET', 'form.php?' + 'ourForm_inp=' + userInput);
-
-    // POST Запрос
-    xhr.open('POST', 'backend.php');
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            servResponse.textContent = xhr.responseText;
+$.ajax(
+    'https://repetitora.net/api/JS/Images',
+    {
+        success: function (data) {
+            data.forEach(el => {
+                const img = document.createElement('img');
+                img.src = el.thumbnail;
+                document.querySelector('body').appendChild(img);
+            });
         }
     }
-
-    xhr.send('ourForm_inp=' + userInput);
-
-};
+)
